@@ -1,2 +1,2 @@
 # Intelligent-Prosthetic-Arm
-Research Project in ARMLab with Prof. Monroe Kennedy
+Research Project with Prof. Monroe Kennedy at ARMLab, Stanford University 
