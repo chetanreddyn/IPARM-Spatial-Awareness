@@ -1,0 +1,18 @@
+<launch>
+    <!-- Namespace for both cameras -->
+    <group ns="multicam">
+        <!-- First camera node -->
+        <node name="cam1" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <param name="video_device" value="/dev/video0" />
+            <param name="image_width" value="640" />
+            <param name="image_height" value="480" />
+            <param name="pixel_format" value="yuyv" />
+            <param name="io_method" value="mmap" />
+            <param name="camera_name" value="cam1"/>
+        </node>
+    </group>
+    <node name="camera_calibration" 
+          pkg="camera_calibration" 
+          type="cameracalibrator.py" 
+          args="--size 8x6 --square 0.025 image:=/multicam/cam1/image_raw camera:=/multicam/cam1"/>
+</launch>

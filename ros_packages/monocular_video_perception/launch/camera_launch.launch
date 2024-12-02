@@ -1,0 +1,18 @@
+<launch>
+    <!-- Namespace for both cameras -->
+    <group ns="multicam">
+        <!-- First camera node -->
+        <node name="cam1" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <param name="camera_info_url" value="package://monocular_video_perception/calibration_files/cam1.yaml"/>
+            <param name="video_device" value="/dev/video0" />
+            <param name="image_width" value="640" />
+            <param name="image_height" value="480" />
+            <param name="pixel_format" value="yuyv" />
+            <param name="io_method" value="mmap" />
+            <param name="camera_name" value="cam1"/>
+        </node>
+
+        <node name="camera_to_base_tf" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /world /multicam/cam1/camera_frame 100" />
+    </group>
+        <node name="rviz" pkg="rviz" type="rviz" args="-d /home/chetan/armlab_ws/src/monocular_video_perception/rviz/Single_Camera.rviz" />
+</launch>
