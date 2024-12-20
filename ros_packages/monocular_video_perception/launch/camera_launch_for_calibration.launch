@@ -1,18 +1,26 @@
 <launch>
-    <!-- Namespace for both cameras -->
+    <!-- Define arguments with default values -->
+    <arg name="camera_num" default="4" />
+    <arg name="camera_file" default="/dev/video6" />
+
+
     <group ns="multicam">
-        <!-- First camera node -->
-        <node name="cam1" pkg="usb_cam" type="usb_cam_node" output="screen">
-            <param name="video_device" value="/dev/video0" />
+        <!-- Camera node, dynamic name based on camera_num -->
+        <node name="cam_$(arg camera_num)" pkg="usb_cam" type="usb_cam_node" output="screen">
+            <!-- Dynamic camera name and video device -->
+            <param name="video_device" value="$(arg camera_file)" />
             <param name="image_width" value="640" />
             <param name="image_height" value="480" />
             <param name="pixel_format" value="yuyv" />
             <param name="io_method" value="mmap" />
-            <param name="camera_name" value="cam1"/>
+            <param name="camera_name" value="cam_$(arg camera_num)" />
         </node>
     </group>
+
+    <!-- Camera calibration node -->
     <node name="camera_calibration" 
           pkg="camera_calibration" 
           type="cameracalibrator.py" 
-          args="--size 8x6 --square 0.025 image:=/multicam/cam1/image_raw camera:=/multicam/cam1"/>
+          args="--size 8x6 --square 0.025 image:=/multicam/cam_$(arg camera_num)/image_raw camera:=/multicam/cam_$(arg camera_num)" />
 </launch>
+
