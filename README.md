@@ -11,7 +11,7 @@ This project aims to enhance the spatial awareness of an intelligent prosthetic 
 To launch the monocular video perception system:  
 ```bash
 roslaunch monocular_video_perception camera_multicam_launch.launch
-
+```
 
    
 ### *Object Tracking as it moves across the different Cameras FOV (Field of View)*
