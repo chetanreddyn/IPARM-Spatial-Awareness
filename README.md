@@ -1,6 +1,9 @@
 # Improving Spatial Awareness in an Intelligent Prosthetic Arm (IPRAM)
 Research Project with Prof. Monroe Kennedy at ARMLab, Stanford University 
 
+Commands to run:
+1. roslaunch monocular_video_perception camera_multicam_launch.launch
+   
 Object Tracking as it moves across the different Cameras FOV (Field of View)
 
 
