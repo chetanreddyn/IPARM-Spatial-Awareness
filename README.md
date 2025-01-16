@@ -2,10 +2,11 @@
 Research Project with Prof. Monroe Kennedy at ARMLab, Stanford University 
 
 Object Tracking as it moves across the different Cameras FOV (Field of View)
-<video controls>
-  <source src="/media/Camera Tracking.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+
+https://github.com/user-attachments/assets/74ad20de-e4ba-4e6a-aaf5-bd92d5919842
+
+
 
 One Side of the Camera Setup:
 
